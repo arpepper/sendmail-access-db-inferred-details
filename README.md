@@ -2,11 +2,13 @@
 Extending old http://www.sendmail.org/m4/anti_spam.html with results of unanswered questions I answered
 
 ==========================================================================
+
 https://github.com/arpepper/sendmail-access-db-inferred-details.git
 
 e.g. "git clone https://github.com/arpepper/sendmail-access-db-inferred-details.git"
 
 To obtain the latest copy on branch "master"... curl -L -O https://github.com/arpepper/sendmail-access-db-inferred-details/archive/master.tar.gz
+
 ==========================================================================
 
 Actually I expand upon...
