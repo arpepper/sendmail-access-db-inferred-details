@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="/sites/all/themes/linuxweblog/favicon.ico" type="image/x-icon" />
+  <title>sendmail access.db by example | LinuxWebLog.com</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" id="header">
+  <tr>
+    <td colspan="2"><div></div></td>
+  </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" id="content">
+  <tr>
+        <td valign="top">
+            <div id="main">
+<h1 class="title">sendmail access.db by example</h1>
+<p>Since "/etc/mail/access" is a database, after creating the text file, use makemap to create the database map.  </p>
+<p><div class="codeblock"><code># makemap hash /etc/mail/access.db &lt; /etc/mail/access</code></div></p>
+<p>Below is what my access file currently looks like and can be used as a starting point. All internal addresses have been changed except for spammers!!</p>
+<p>
+Below are more examples and explanations for reference which comes from the sendmail-cf distribution docs.</p>
+<p>The table itself uses e-mail addresses, domain names, and network numbers as keys. </p>
+<p>Note that IPv6 addresses must be prefaced with "IPv6:".</p>
+<p>For example:</p>
+<pre>
+        spammer@aol.com                 REJECT
+        cyberspammer.com                REJECT
+        TLD                             REJECT
+        192.168.212                     REJECT
+        IPv6:2002:c0a8:02c7             RELAY
+        IPv6:2002:c0a8:51d2::23f4       REJECT
+</pre>
+
+<p>
+Note that IPv6:2002:c0a8:51d2::23f4 is not interpreted as a full address.
+It is interpreted as 2002:c0a8:51d2:0:23f4:0:0:0.  To get what would
+normally be written as 2002:c0a8:51d2::23f4 you would need
+2002:c0a8:51d2:0:0:0:0:23f4.
+</p>
+
+<p>
+Similarly note that IPv6:2002:c0a8:02c7: would be interpreted (I think) as
+IPv6:2002:c0a8:02c7:0/64.  But then IPv4 needs to avoid trailing ".",
+so IPv6 is merely similar.
+</p>
+
