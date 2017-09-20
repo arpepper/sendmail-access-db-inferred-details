@@ -4,12 +4,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>sendmail access.db by example | LinuxWebLog.com</title>
+  <title>sendmail access.db enumeration order</title>
 </head>
 
 <body>
 
-<h1 class="title">sendmail access.db by example</h1>
+<h1 class="title">sendmail access.db by example - enumeration order</h1>
 <p>
 It seems that the first match of an IP address is used for a particular connection.
 </p>
@@ -18,7 +18,8 @@ If you want to enumerate the entire IP space, you can specify OK and RELAY early
 and finish off with possible REJECT for a complete enumeration.
 </p>
 <p>
-That is better than attempting to mix OK and RELAY with REJECT and
+That is better than attempting to proceed through the entire space in order,
+which would tempt you to mix OK and RELAY with REJECT, and
 apparently needing to specify REJECT for all subnets at the same level
 as OK or RELAY.  (Example perhaps needed).
 </p>
