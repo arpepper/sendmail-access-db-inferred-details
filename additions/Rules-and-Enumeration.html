@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>sendmail access.db by example | LinuxWebLog.com</title>
+</head>
+
+<body>
+
+<h1 class="title">sendmail access.db by example</h1>
+<p>
+It seems that the first match of an IP address is used for a particular connection.
+</p>
+<p>
+If you want to enumerate the entire IP space, you can specify OK and RELAY early
+and finish off with possible REJECT for a complete enumeration.
+</p>
+<p>
+That is better than attempting to mix OK and RELAY with REJECT and
+apparently needing to specify REJECT for all subnets at the same level
+as OK or RELAY.  (Example perhaps needed).
+</p>
+<p>
+If you mix reference by name and IP, it's not clear what happens.
+It does not seem that all names are evaluated to IP before use.
+Ultimately, it seems best to use IP only.
+</p>
+
+<p>
+While ranges of addresses can be specificed by prefixes, I have found no
+way to specify a range of prefixes.
+</p>
+<p>
+If you want to enumerate the entire IP space, you will need 256 lines for IPv4
+and 65536(!) lines for IPv6.
+Luckily, that does seem to work.
+</p>
+
+</body>
+</html>
