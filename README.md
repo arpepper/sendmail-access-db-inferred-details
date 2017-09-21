@@ -24,3 +24,8 @@ That seems to have moved to
 http://www.sendmail.org/~ca/email/doc8.12/cf/m4/anti_spam.html
 
 with some expansion.  But not a lot of extra access.db info.
+
+
+Strangely, I thought I had a lot to say.  But a couple of key short points
+vastly improved my own understanding.  So it seems I probably don't need to
+create anything very exetensive.
