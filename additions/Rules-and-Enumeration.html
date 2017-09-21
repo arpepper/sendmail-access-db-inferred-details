@@ -24,9 +24,74 @@ apparently needing to specify REJECT for all subnets at the same level
 as OK or RELAY.  (Example perhaps needed).
 </p>
 <p>
+Example:
+</p>
+<p>
+To enable relaying for subnet 142.150.210 but disable for all others,
+the temptation (in order to specify all subnets in order) might be to write...
+</p>
+<pre>
+Connect: 0	REJECT
+[...]
+Connect: 139	REJECT
+Connect: 140	REJECT
+Connect: 141	REJECT
+Connect: 142.1	REJECT
+[...]
+Connect: 142.149	REJECT
+Connect: 142.150.0	REJECT
+Connect: 142.150.1	REJECT
+Connect: 142.150.2	REJECT
+[...]
+Connect: 142.150.209	REJECT
+Connect: 142.150.210	RELAY
+Connect: 142.150.211	REJECT
+[...]
+Connect: 142.150.255	REJECT
+Connect: 142.151	REJECT
+Connect: 142.152	REJECT
+[...]
+Connect: 142.254	REJECT
+Connect: 142.255	REJECT
+Connect: 143	REJECT
+Connect: 144	REJECT
+[...]
+Connect: 253	REJECT
+Connect: 254	REJECT
+Connect: 255	REJECT
+</pre>
+<p>
+However, you can more simplify specify all the success results first,
+and finish with general rejects which, while they would include those
+same addresses, will not in fact be evaluated.
+</p>
+<pre>
+Connect: 142.150.211	REJECT
+#
+Connect: 0	REJECT
+[...]
+Connect: 139	REJECT
+Connect: 140	REJECT
+Connect: 141	REJECT
+Connect: 142	REJECT
+Connect: 143	REJECT
+Connect: 144	REJECT
+[...]
+Connect: 253	REJECT
+Connect: 254	REJECT
+Connect: 255	REJECT
+</pre>
+<p>
+Which is much shorter and actually clearer.
+</p>
+<p>
+The difference is even more drastic in IPv6.
+</p>
+<p>
 If you mix reference by name and IP, it's not clear what happens.
 It does not seem that all names are evaluated to IP before use.
-Ultimately, it seems best to use IP only.
+Ultimately, it seems best to use IP only.  (Especially as hosts begin
+to have both IPv4 and IPv6 addresses).
 </p>
 
 <p>
